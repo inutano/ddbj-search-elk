@@ -1,0 +1,537 @@
+{
+  "study": {
+    "@accession": "drp000001",
+    "descriptor": {
+      "study_type": {
+        "@existing_study_type": "whole genome sequencing"
+      },
+      "center_project_name": {
+        "$": "b. subtilis natto best195 draft sequencing"
+      },
+      "study_description": {
+        "$": "whole genome sequencing of a natto (fermented soybeans) producing strain of bacillus subtilis, best195."
+      },
+      "study_title": {
+        "$": "whole genome sequencing of baillus subtilis subsp. natto best195"
+      },
+      "study_abstract": {
+        "$": "whole genome sequencing of bacillus subtilis subsp. natto best195."
+      },
+      "related_studies": {
+        "related_study": [
+          {
+            "related_link": {
+              "id": {
+                "$": "prjda38027"
+              },
+              "db": {
+                "$": "bioproject"
+              },
+              "label": {
+                "$": "prjda38027"
+              }
+            },
+            "is_primary": {
+              "$": "true"
+            }
+          },
+          {
+            "related_link": {
+              "id": {
+                "$": "38027"
+              },
+              "db": {
+                "$": "genomeprj"
+              },
+              "label": {
+                "$": "38027"
+              }
+            },
+            "is_primary": {
+              "$": "false"
+            }
+          }
+        ]
+      }
+    },
+    "identifiers": {
+      "primary_id": {
+        "@label": "bioproject id",
+        "$": "prjda38027"
+      }
+    },
+    "study_attributes": {
+      "study_attribute": {
+        "units": {
+          "$": "accession number"
+        },
+        "value": {
+          "$": "ap011541-ap011542"
+        },
+        "tag": {
+          "$": "ddbj"
+        }
+      }
+    },
+    "@alias": "drp000001",
+    "study_links": {
+      "study_link": {
+        "xref_link": {
+          "id": {
+            "$": "20398357"
+          },
+          "db": {
+            "$": "pubmed"
+          }
+        }
+      }
+    },
+    "@center_name": "keio"
+  },
+  "bioproject": {
+    "package": {
+      "project": {
+        "submission": {
+          "@submitted": "2009-05-13",
+          "description": {
+            "access": {
+              "$": "public"
+            },
+            "organization": {
+              "@type": "center",
+              "@role": "owner",
+              "name": {
+                "$": "keio university",
+                "@abbr": "keio university"
+              }
+            }
+          }
+        },
+        "projectlinks": {
+          "link": {
+            "projectidref": {
+              "@archive": "ddbj",
+              "@id": "38027",
+              "@accession": "prjda38027"
+            },
+            "hierarchical": {
+              "@type": "topsingle",
+              "memberid": {
+                "@archive": "ncbi",
+                "@id": "17579",
+                "@accession": "prjna17579"
+              }
+            }
+          }
+        },
+        "project": {
+          "projectdescr": {
+            "description": {
+              "$": "<p><b><i>bacillus subtilis</i> subsp. <i>natto</i> best195</b>. i>bacillus subtilis</i> subsp. <i>natto</i> best195 was isolated from fermented soybeans and will be used for comparative genome analysis."
+            },
+            "publication": [
+              {
+                "dbtype": {
+                  "$": "epubmed"
+                },
+                "reference": null,
+                "@date": "2010-04-20t00:00:00z",
+                "@status": "epublished",
+                "@id": "20398357"
+              },
+              {
+                "dbtype": {
+                  "$": "epubmed"
+                },
+                "reference": null,
+                "@status": "epublished",
+                "@id": "25329997"
+              }
+            ],
+            "projectreleasedate": {
+              "$": "2010-03-24t00:00:00z"
+            },
+            "locustagprefix": {
+              "@biosample_id": "samd00016353",
+              "$": "bsnt",
+              "@assembly_id": "gca_000209795"
+            },
+            "title": {
+              "$": "bacillus subtilis subsp. natto best195 genome sequencing project"
+            },
+            "name": {
+              "$": "bacillus subtilis subsp. natto best195"
+            }
+          },
+          "projecttype": {
+            "projecttypesubmission": {
+              "method": {
+                "@method_type": "esequencing"
+              },
+              "objectives": {
+                "data": {
+                  "@data_type": "eassembly"
+                }
+              },
+              "target": {
+                "@capture": "ewhole",
+                "organism": {
+                  "supergroup": {
+                    "$": "ebacteria"
+                  },
+                  "strain": {
+                    "$": "best195"
+                  },
+                  "organismname": {
+                    "$": "bacillus subtilis subsp. natto best195"
+                  },
+                  "@taxid": "645657",
+                  "@species": "1423",
+                  "repliconset": {
+                    "count": {
+                      "$": "2",
+                      "@replicontype": "eother"
+                    },
+                    "replicon": [
+                      {
+                        "type": {
+                          "$": "echromosome",
+                          "@location": "enuclearprokaryote"
+                        },
+                        "@order": "1",
+                        "size": {
+                          "$": "4.100000",
+                          "@units": "mb"
+                        },
+                        "name": {
+                          "$": "anonymous"
+                        }
+                      },
+                      {
+                        "type": {
+                          "$": "eplasmid",
+                          "@location": "enuclearprokaryote"
+                        },
+                        "@order": "2",
+                        "size": {
+                          "$": "0.005800",
+                          "@units": "mb"
+                        },
+                        "name": {
+                          "$": "pbest195s"
+                        }
+                      }
+                    ]
+                  },
+                  "biologicalproperties": {
+                    "morphology": {
+                      "gram": {
+                        "$": "epositive"
+                      },
+                      "shape": {
+                        "$": "ebacilli"
+                      },
+                      "motility": {
+                        "$": "eyes"
+                      }
+                    },
+                    "environment": {
+                      "habitat": {
+                        "$": "emultiple"
+                      },
+                      "temperaturerange": {
+                        "$": "emesophilic"
+                      },
+                      "oxygenreq": {
+                        "$": "eaerobic"
+                      }
+                    }
+                  },
+                  "genomesize": {
+                    "$": "4105.800000",
+                    "@units": "kb"
+                  }
+                },
+                "@sample_scope": "emonoisolate",
+                "@material": "egenome"
+              },
+              "projectdatatypeset": {
+                "datatype": {
+                  "$": "genome sequencing"
+                }
+              }
+            }
+          },
+          "projectid": {
+            "archiveid": {
+              "@archive": "ddbj",
+              "@id": "38027",
+              "@accession": "prjda38027"
+            }
+          }
+        }
+      },
+      "@xmlns:xsi": "http://www.w3.org/2001/xmlschema-instance"
+    }
+  },
+  "biosample": {
+    "@last_update": "2014-11-12t03:29:46.000",
+    "models": {
+      "model": {
+        "$": "generic"
+      }
+    },
+    "package": {
+      "$": "generic.1.0",
+      "@display_name": "generic"
+    },
+    "attributes": {
+      "attribute": [
+        {
+          "$": "drs000001",
+          "@attribute_name": "sample_name",
+          "@harmonized_name": "sample_name",
+          "@display_name": "sample name"
+        },
+        {
+          "$": "best195",
+          "@attribute_name": "strain",
+          "@harmonized_name": "strain",
+          "@display_name": "strain"
+        },
+        {
+          "$": "genomic dna from bacillus subtilis subsp. natto best195, without pbest195l plasid.",
+          "@attribute_name": "sample comment"
+        },
+        {
+          "$": "bacillus subtilis subsp. natto",
+          "@attribute_name": "common name"
+        },
+        {
+          "$": "natto",
+          "@attribute_name": "sub_species",
+          "@harmonized_name": "sub_species",
+          "@display_name": "sub species"
+        }
+      ]
+    },
+    "description": {
+      "organism": {
+        "organismname": {
+          "$": "bacillus subtilis subsp. natto best195"
+        },
+        "@taxonomy_name": "bacillus subtilis subsp. natto best195",
+        "@taxonomy_id": "645657"
+      },
+      "title": {
+        "$": "drs000001"
+      }
+    },
+    "@submission_date": "2010-04-06t05:11:37.466",
+    "ids": {
+      "id": [
+        {
+          "$": "samd00016353",
+          "@db": "biosample",
+          "@is_primary": "1"
+        },
+        {
+          "$": "drs000001",
+          "@db": "sra"
+        }
+      ]
+    },
+    "@id": "10778",
+    "@accession": "samd00016353",
+    "status": {
+      "@when": "2010-03-26t00:00:00.000",
+      "@status": "live"
+    },
+    "@publication_date": "2010-03-26t00:00:00.000",
+    "@access": "public",
+    "owner": {
+      "name": {
+        "$": "bioinformatics lab."
+      }
+    }
+  },
+  "sample": [
+    {
+      "@center_name": "keio",
+      "description": {
+        "$": "genomic dna from bacillus subtilis subsp. natto best195, without pbest195l plasid."
+      },
+      "@alias": "drs000001",
+      "identifiers": {
+        "primary_id": {
+          "$": "samd00016353",
+          "@label": "biosample id"
+        }
+      },
+      "sample_attributes": {
+        "sample_attribute": [
+          {
+            "tag": {
+              "$": "strain"
+            },
+            "value": {
+              "$": "best195"
+            }
+          },
+          {
+            "units": null,
+            "tag": {
+              "$": "common name"
+            },
+            "value": {
+              "$": "bacillus subtilis subsp. natto"
+            }
+          }
+        ]
+      },
+      "@accession": "drs000001",
+      "title": {
+        "$": "drs000001"
+      },
+      "sample_name": {
+        "taxon_id": {
+          "$": "645657"
+        },
+        "scientific_name": {
+          "$": "bacillus subtilis subsp. natto best195"
+        }
+      }
+    }
+  ],
+  "experiment": [
+    {
+      "@alias": "drx000001",
+      "processing": {
+        "pipeline": {
+          "pipe_section": {
+            "prev_step_index": null,
+            "step_index": null,
+            "program": {
+              "$": "solexa primary analysis"
+            },
+            "version": null
+          }
+        }
+      },
+      "design": {
+        "spot_descriptor": {
+          "spot_decode_spec": {
+            "read_spec": [
+              {
+                "read_class": {
+                  "$": "application read"
+                },
+                "base_coord": {
+                  "$": "1"
+                },
+                "read_index": {
+                  "$": "0"
+                },
+                "read_type": {
+                  "$": "forward"
+                }
+              },
+              {
+                "read_class": {
+                  "$": "application read"
+                },
+                "base_coord": {
+                  "$": "37"
+                },
+                "read_index": {
+                  "$": "1"
+                },
+                "read_type": {
+                  "$": "reverse"
+                }
+              }
+            ],
+            "spot_length": {
+              "$": "72"
+            }
+          }
+        },
+        "design_description": {
+          "$": "randomly fragmented by ultrasonic waves."
+        },
+        "sample_descriptor": {
+          "identifiers": {
+            "primary_id": {
+              "$": "samd00016353",
+              "@label": "biosample id"
+            }
+          },
+          "@refname": "drs000001",
+          "@refcenter": "keio",
+          "@accession": "drs000001"
+        },
+        "library_descriptor": {
+          "library_strategy": {
+            "$": "wgs"
+          },
+          "library_layout": {
+            "paired": {
+              "@nominal_sdev": "24.7558",
+              "@nominal_length": "163"
+            }
+          },
+          "library_name": {
+            "$": "b.subtilis natto best195 genomic dna fragments, isolated aug 2008"
+          },
+          "library_construction_protocol": {
+            "$": "the dna is purified through the ultracentrifugation in presence of cecium-chloride and ethidium-bromide, then fragmented by ultrasonic waves. fragments around 160bp were isolated by gel electrophoresis."
+          },
+          "library_selection": {
+            "$": "random"
+          },
+          "library_source": {
+            "$": "genomic"
+          }
+        }
+      },
+      "study_ref": {
+        "identifiers": {
+          "primary_id": {
+            "$": "prjda38027",
+            "@label": "bioproject id"
+          }
+        },
+        "@refname": "drp000001",
+        "@refcenter": "keio",
+        "@accession": "drp000001"
+      },
+      "@accession": "drx000001",
+      "platform": {
+        "illumina": {
+          "instrument_model": {
+            "$": "illumina genome analyzer ii"
+          }
+        }
+      },
+      "title": {
+        "$": "b. subtilis subsp. natto genome sequencing september 2008"
+      },
+      "@center_name": "keio"
+    }
+  ],
+  "run": [
+    {
+      "@alias": "drr000001",
+      "@run_date": "2008-09-13t01:27:27+09:00",
+      "@xmlns:ns2": "sra.annotation",
+      "@run_center": "nig",
+      "@accession": "drr000001",
+      "@center_name": "keio",
+      "experiment_ref": {
+        "@refname": "drx000001",
+        "@refcenter": "keio",
+        "@accession": "drx000001"
+      }
+    }
+  ]
+}
