@@ -5,10 +5,14 @@ def nested_fields(obj)
   obj.each_pair do |key, value|
     case value
     when Hash
-      listing << [key, nested_fields(value)]
+      nested_fields(value).each do |child|
+        listing << [key, child]
+      end
     when Array
-      array_nested(value).each do |val|
-        listing << [key, val]
+      array_nested(value).each do |item|
+        item.each do |i|
+          listing << [key, i]
+        end
       end
     else
       listing << [key, value]
@@ -18,14 +22,14 @@ def nested_fields(obj)
 end
 
 def array_nested(array)
-  array.map do |val|
-    case val
-    when Hash
-      nested_fields(val)
+  array.map do |item|
+    case item
     when Array
-      array_nested(val)
+      array_nested(item)
+    when Hash
+      nested_fields(item)
     else
-      val
+      [item]
     end
   end
 end
@@ -41,4 +45,10 @@ if __FILE__ == $0
   fields.each do |f|
     p f
   end
+
+  # objkt = {a: 1, b: [1,2,3], c: {d: 1, e:2, f: {g: 3}}, h: [1,2,3,[{i:4},{j:5}]]}
+  # fields = nested_fields(objkt)
+  # fields.each do |f|
+  #   p f.flatten[0...-1]
+  # end
 end
