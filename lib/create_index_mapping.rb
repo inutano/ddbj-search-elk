@@ -1,5 +1,6 @@
 require 'json'
 require 'date'
+require 'redis'
 
 class DateTime
   class << self
@@ -14,12 +15,24 @@ end
 
 module OmicsMetadataFields
   class << self
-    def extract_fields(json_lines_path)
-      File.open(json_lines_path).each_line.each_with_index do |line, i|
+    def extract_fields(json_lines_path, redis_client)
+      File.open(json_lines_path).each_line.each_with_index do |json, i|
         if i.odd?
-          puts extract(JSON.load(line))
+          add_field_to_redis(json, redis_client)
         end
       end
+    end
+
+    def add_field_to_redis(json, redis_client)
+      redis_client.pipelined do
+        extract(JSON.load(json)).each do |field|
+          redis_client.sadd("fields", field)
+        end
+      end
+    end
+
+    def unique_fields(redis_client)
+      redis_client.sort("fields", order: "asc alpha")
     end
 
     def extract(object)
@@ -74,7 +87,66 @@ module OmicsMetadataFields
   end
 end
 
+module OmicsMetadataIndexMapping
+  class << self
+    def mapping(fields)
+      analyzer.merge(properties(fields))
+    end
+
+    def analyzer
+      {
+        settings: {
+          analysis: {
+            analyzer: {
+              ngram_analyzer: {
+                tokenizer: "ngram_tokenizer"
+              }
+            },
+            tokenizer: {
+              ngram_tokenizer: {
+                type: "ngram",
+                min_gram: 3,
+                max_gram: 3,
+                token_chars: [
+                  "letter",
+                  "digit"
+                ]
+              }
+            }
+          }
+        }
+      }
+    end
+
+    def fields_index_setting(fields)
+      setting = {}
+      fields.each do |field|
+        setting[field] = {
+          type: "string",
+          analyzer: "ngram_tokenizer"
+        }
+      end
+      setting
+    end
+
+    def properties(fields)
+      {
+        mappings: {
+          metadata: {
+            properties: fields_index_setting(fields)
+          }
+        }
+      }
+    end
+  end
+end
+
 if __FILE__ == $0
+  redis = Redis.new(host: "redis", port: 6379, driver: :hiredis)
+
   json_lines_path = ARGV.first
-  OmicsMetadataFields.extract_fields(json_lines_path)
+  OmicsMetadataFields.extract_fields(json_lines_path, redis)
+  fields = OmicsMetadataFields.unique_fields(redis)
+
+  puts OmicsMetadataIndexMapping.mapping(fields)
 end
