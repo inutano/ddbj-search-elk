@@ -1,5 +1,18 @@
 version: '3'
 services:
+  ruby:
+    image: ruby:2.5.0-slim
+    container_name: ruby
+    entrypoint: /bin/bash
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/work
+  redis:
+    image: redis:5.0-rc-alpine
+    container_name: redis
+    ports:
+      - 6379:6379
   elk:
     image: sebp/elk:622
     container_name: elk
