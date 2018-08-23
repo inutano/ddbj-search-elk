@@ -14,6 +14,14 @@ end
 
 module OmicsMetadataFields
   class << self
+    def extract_fields(json_lines_path)
+      File.open(json_lines_path).each_line.each_with_index do |line, i|
+        if i.odd?
+          puts extract(JSON.load(line))
+        end
+      end
+    end
+
     def extract(object)
       evaluate(field_listing(object))
     end
@@ -68,12 +76,5 @@ end
 
 if __FILE__ == $0
   json_lines_path = ARGV.first
-
-  json_array = open(json_lines_path).readlines.map.with_index(1) do |line, i|
-    if i % 2 == 0
-      JSON.load(line)
-    end
-  end
-
-  puts OmicsMetadataFields.extract(json_array.compact.first)
+  OmicsMetadataFields.extract_fields(json_lines_path)
 end
