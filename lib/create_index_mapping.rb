@@ -12,9 +12,9 @@ class DateTime
   end
 end
 
-module OmicsMetadata
+module OmicsMetadataFields
   class << self
-    def fields(object)
+    def extract(object)
       evaluate(field_listing(object))
     end
 
@@ -75,5 +75,5 @@ if __FILE__ == $0
     end
   end
 
-  puts OmicsMetadata.fields(json_array.compact.first)
+  puts OmicsMetadataFields.extract(json_array.compact.first)
 end
