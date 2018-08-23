@@ -1,4 +1,5 @@
 require 'json'
+require 'date'
 
 def nested_fields(obj)
   listing = []
@@ -34,6 +35,24 @@ def array_nested(array)
   end
 end
 
+def is_date?(string)
+  date = DateTime.parse(string)
+  true if date
+rescue
+  false
+end
+
+def evaluate_fields(fields)
+  fields.each do |fld|
+    f = fld.flatten
+    value = f.pop
+    tag = f.last
+    if !is_date?(value) && tag !~ /@/
+      p f
+    end
+  end
+end
+
 if __FILE__ == $0
   json_lines = ARGV.first
   json_array = open(json_lines).readlines.map.with_index(1) do |line, i|
@@ -42,9 +61,7 @@ if __FILE__ == $0
     end
   end
   fields = nested_fields(json_array.compact.first)
-  fields.each do |f|
-    p f
-  end
+  evaluate_fields(fields)
 
   # objkt = {a: 1, b: [1,2,3], c: {d: 1, e:2, f: {g: 3}}, h: [1,2,3,[{i:4},{j:5}]]}
   # fields = nested_fields(objkt)
